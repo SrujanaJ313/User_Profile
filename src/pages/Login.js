@@ -70,7 +70,7 @@ const Login = () => {
             data: data.user,
             login: true,
           });
-          navigate("/user/dashboard");
+          // navigate("/user/dashboard");
         });
 
         toast.success("Login Success");

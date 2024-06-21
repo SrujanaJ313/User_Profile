@@ -3,14 +3,21 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Button, Card, CardBody, CardFooter, Col, Container, Input, Row, Table } from 'reactstrap'
-import Base from '../../components/Base'
+// import Base from '../../components/Base'
 import ViewUserProfile from '../../components/ViewUserProfile'
 import userContext from '../../context/userContext'
 import { getUser } from '../../services/user-service'
 function ProfileInfo() {
   const object = useContext(userContext)
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({
+    id:1,
+    name:'John',
+    email:'John@abc.com',
+    about:'Alive',
+    roles:[{id:1,name:'Software'}]
+
+  })
   const [updateFlag, setUpdateFlag] = useState(false)
   const { userId } = useParams()
   // console.log(userId);
@@ -56,7 +63,7 @@ function ProfileInfo() {
 
     )
   }
-
+  console.log('updateFlag::',updateFlag);
   // END view user Profile
 
   //upate profile
@@ -134,7 +141,7 @@ function ProfileInfo() {
   //END update profile
 
   return (
-    <Base>
+    <>
       <Row>
         <Col md={{ size: 6, offset: 3 }}>
 
@@ -143,7 +150,7 @@ function ProfileInfo() {
           </Container>
         </Col>
       </Row>
-    </Base>
+    </>
   )
 }
 
