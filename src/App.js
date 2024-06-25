@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
         <ToastContainer position="bottom-center" />
         <Routes>
-          <Route path="/" element={<ProfileInfo />} />
+          <Route path="/userProfile" element={<ProfileInfo />} />
           {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/signup" element={<Signup />} /> */}
           {/* <Route path="/about" element={<About />} /> */}
