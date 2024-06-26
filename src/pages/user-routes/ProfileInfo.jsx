@@ -1,151 +1,200 @@
-import React, { useContext } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import {
+  Box,
+  Grid,
+  Avatar,
+  Typography,
+  IconButton,
   Button,
+  TextField,
+  MenuItem,
   Card,
-  CardBody,
-  CardFooter,
-  Col,
-  Container,
-  Input,
-  Row,
-  Table,
-} from "reactstrap";
-// import Base from '../../components/Base'
-import ViewUserProfile from "../../components/ViewUserProfile";
-import userContext from "../../context/userContext";
-import { getUser } from "../../services/user-service";
-function ProfileInfo() {
-  const object = useContext(userContext);
+  CardContent,
+} from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 
-  const [user, setUser] = useState({
-    id: 1,
-    name: "John",
-    email: "John@affiliate.nhes.nh.gov",
-    about: "-",
-    roles: [{ id: 1, name: "Software" }],
-  });
-  const [updateFlag, setUpdateFlag] = useState(false);
-  const { userId } = useParams();
-  // console.log(userId);
-
-  useEffect(() => {
-    getUser(userId).then((data) => {
-      console.log(data);
-      setUser({ ...data });
-    });
-  }, []);
-
-  const toggleUpdateFlag = (value) => {
-    setUpdateFlag(value);
-  };
-
-  //show update profile
-  const showUpdateProfile = () => {
-    toggleUpdateFlag(true);
-  };
-
-  //show view profile
-  const viewUpdateProflie = () => {
-    toggleUpdateFlag(false);
-  };
-
-  /*  view user profile */
-  const userView = () => {
-    return (
-      <ViewUserProfile updateProfileClick={showUpdateProfile} user={user} />
-    );
-  };
-
-  const viewUserProfile = () => {
-    return <div>{user ? userView() : "Loading user Data..."}</div>;
-  };
-  console.log("updateFlag::", updateFlag);
-  // END view user Profile
-
-  //upate profile
-  const updateUserProfile = () => {
-    return (
-      <div>
-        <Card className="mt-2 border-0 rounded-0 shadow-sm">
-          <CardBody>
-            <h3 className="text-uppercase">user Information</h3>
-
-            <Container className="text-center">
-              <img
-                style={{ maxWidth: "200px", maxHeight: "200px" }}
-                src={
-                  user.image
-                    ? user.image
-                    : "https://cdn.dribbble.com/users/6142/screenshots/5679189/media/1b96ad1f07feee81fa83c877a1e350ce.png?compress=1&resize=400x300&vertical=top"
-                }
-                alt="user profile picture"
-                className="img-fluid  rounded-circle"
-              />
-            </Container>
-            <Table
-              responsive
-              striped
-              hover
-              bordered={true}
-              className="text-center mt-5"
-            >
-              <tbody>
-                {/* <tr>
-                  <td>LCWDBlLOGS ID</td>
-                  <td>LCWD{user.id}</td>
-                </tr> */}
-                
-                <tr>
-                  <td>USER NAME</td>
-                  <td>
-                    <Input type="text" value={user.name} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>USER EMAIL</td>
-                  <td>{user.email}</td>
-                </tr>
-                <tr>
-                  <td>ABOUT</td>
-                  <td>
-                    <Input type="textarea" value={user.about} />
-                  </td>
-                </tr>
-                <tr>
-                  <td>ROLE</td>
-                  <td>
-                    {user.roles.map((role) => {
-                      return <div key={role.id}>{role.name}</div>;
-                    })}
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </CardBody>
-          <CardFooter className="text-center">
-            <Button color="success">Update Profile</Button>
-          </CardFooter>
-        </Card>
-      </div>
-    );
-  };
-
-  //END update profile
-
+const ProfileInfo = () => {
   return (
-    <>
-      <Row>
-        <Col md={{ size: 6, offset: 3 }}>
-          <Container>
-            {updateFlag ? updateUserProfile() : viewUserProfile()}
-          </Container>
-        </Col>
-      </Row>
-    </>
+    <Box sx={{ display: "flex", height: "100vh", backgroundColor: "white" }}>
+      {/* Sidebar */}
+      <Box
+        sx={{
+          width: "250px",
+          backgroundColor: "#F7F7F8",
+          padding: 2,
+          boxShadow: "0px 0px 5px rgba(0,0,0,0.1)",
+        }}
+      >
+        <Typography variant="h5" sx={{ mb: 4 }}>
+          NHUIS
+        </Typography>
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Overview
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Currency
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Banks
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Cards
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1, color: "#8D4DFF" }}>
+            Setting
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Profile
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Security
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Option
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Theme
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 1 }}>
+            Log Out
+          </Typography>
+        </Box>
+      </Box>
+
+      {/* Main Content */}
+      <Box sx={{ flexGrow: 1, padding: 3 }}>
+        {/* Header */}
+        <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
+          <Typography variant="h4">Setting</Typography>
+          <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Avatar src="/path/to/avatar.jpg" sx={{ mr: 2 }} />
+            <Typography variant="body1">Maksudur</Typography>
+          </Box>
+        </Box>
+
+        {/* Profile Section */}
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={5.5}>
+            <Card sx={{ mb: 4, borderRadius: 3, backgroundColor: "white" }}>
+              <CardContent
+                sx={{
+                  backgroundColor: "#f0f2f5",
+                  borderTopRightRadius: 3,
+                  borderTopLeftRadius: 3,
+                }}
+              >
+                <Typography variant="h6">Your profile</Typography>
+              </CardContent>
+              <CardContent>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    backgroundColor: "white",
+                    borderRadius: 3,
+                    p: 2,
+                  }}
+                >
+                  <Box
+                    sx={{
+                      position: "relative",
+                      display: "inline-block",
+                      width: 64,
+                      height: 64,
+                    }}
+                  >
+                    <Avatar
+                      src="/path/to/profile-picture.jpg"
+                      sx={{ width: "100%", height: "100%" }}
+                    />
+                    <IconButton
+                      sx={{
+                        position: "absolute",
+                        bottom: 0,
+                        right: 0,
+                        backgroundColor: "white",
+                        borderRadius: "50%",
+                        width: 64,
+                        height: 64,
+                      }}
+                    >
+                      <CameraAltIcon fontSize="small" />
+                    </IconButton>
+                  </Box>
+
+                  <Box sx={{ flexGrow: 1, m:2 }}>
+                    <Typography variant="h6">Maksudur Rahman</Typography>
+                    <Typography variant="body2">+880 1924699597</Typography>
+                  </Box>
+                  <IconButton>
+                    <EditIcon />
+                  </IconButton>
+                </Box>
+              </CardContent>
+            </Card>
+
+            <Card sx={{ mb: 4, borderRadius: 3, backgroundColor: "white" }}>
+              <CardContent
+                sx={{
+                  backgroundColor: "#f0f2f5",
+                  borderTopRightRadius: 3,
+                  borderTopLeftRadius: 3,
+                }}
+              >
+                <Typography variant="h6">Emails</Typography>
+              </CardContent>
+              <CardContent>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  Primary: maksud.design7@gmail.com
+                </Typography>
+                <Typography variant="body2" sx={{ mb: 2 }}>
+                  tamanna7@gmail.com
+                </Typography>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    mr: 2,
+                    color: "black",
+                    fontSize: "12px",
+                    borderRadius: "20px",
+                    padding: "4px 8px",
+                    fontStyle: "normal",
+                    backgroundColor: "white",
+                    borderColor: "#f0f2f5",
+                    textTransform:'unset',
+                    fontWeight:'semibold'
+                  }}
+                >
+                  See all email (4)
+                </Button>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    mr: 2,
+                    color: "black",
+                    fontSize: "12px",
+                    borderRadius: "20px",
+                    padding: "4px 8px",
+                    fontStyle: "normal",
+                    backgroundColor: "white",
+                    borderColor: "#f0f2f5",
+                    textTransform:'capitalize',
+                    fontWeight:'semibold'
+                  }}
+                >
+                  Add Email
+                </Button>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          
+        </Grid>
+      </Box>
+    </Box>
   );
-}
+};
 
 export default ProfileInfo;
