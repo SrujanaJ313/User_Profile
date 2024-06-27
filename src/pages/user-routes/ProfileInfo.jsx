@@ -70,17 +70,17 @@ const ProfileInfo = () => {
           <Typography variant="h4">Setting</Typography>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Avatar src="/path/to/avatar.jpg" sx={{ mr: 2 }} />
-            <Typography variant="body1">Maksudur</Typography>
+            <Typography variant="body1">Srujana</Typography>
           </Box>
         </Box>
 
         {/* Profile Section */}
         <Grid container spacing={3}>
           <Grid item xs={12} md={5.5}>
-            <Card sx={{ mb: 4, borderRadius: 3, backgroundColor: "white" }}>
+            <Card sx={{ mb: 2, borderRadius: 3, backgroundColor: "white" }}>
               <CardContent
                 sx={{
-                  backgroundColor: "#f0f2f5",
+                  backgroundColor: "#F5F5F5",
                   borderTopRightRadius: 3,
                   borderTopLeftRadius: 3,
                 }}
@@ -94,7 +94,7 @@ const ProfileInfo = () => {
                     alignItems: "center",
                     backgroundColor: "white",
                     borderRadius: 3,
-                    p: 2,
+                    // p: 2,
                   }}
                 >
                   <Box
@@ -124,8 +124,8 @@ const ProfileInfo = () => {
                     </IconButton>
                   </Box>
 
-                  <Box sx={{ flexGrow: 1, m:2 }}>
-                    <Typography variant="h6">Maksudur Rahman</Typography>
+                  <Box sx={{ flexGrow: 1, m: 2 }}>
+                    <Typography variant="h6">Srujana</Typography>
                     <Typography variant="body2">+880 1924699597</Typography>
                   </Box>
                   <IconButton>
@@ -135,22 +135,36 @@ const ProfileInfo = () => {
               </CardContent>
             </Card>
 
-            <Card sx={{ mb: 4, borderRadius: 3, backgroundColor: "white" }}>
+            <Card sx={{ mb: 2, borderRadius: 3, backgroundColor: "white" }}>
               <CardContent
                 sx={{
-                  backgroundColor: "#f0f2f5",
+                  backgroundColor: "#F5F5F5",
                   borderTopRightRadius: 3,
                   borderTopLeftRadius: 3,
                 }}
               >
                 <Typography variant="h6">Emails</Typography>
               </CardContent>
+
               <CardContent>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    fontSize: "10px",
+                    fontWeight: "bold",
+                    borderRadius: "20px",
+                    padding: "2px 4px",
+                    mb: 1,
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Primary
+                </Button>
                 <Typography variant="body2" sx={{ mb: 1 }}>
-                  Primary: maksud.design7@gmail.com
+                  srujana313@gmail.com
                 </Typography>
                 <Typography variant="body2" sx={{ mb: 2 }}>
-                  tamanna7@gmail.com
+                  srujana7@gmail.com
                 </Typography>
                 <Button
                   variant="outlined"
@@ -162,9 +176,9 @@ const ProfileInfo = () => {
                     padding: "4px 8px",
                     fontStyle: "normal",
                     backgroundColor: "white",
-                    borderColor: "#f0f2f5",
-                    textTransform:'unset',
-                    fontWeight:'semibold'
+                    borderColor: "#F5F5F5",
+                    textTransform: "unset",
+                    fontWeight: "semibold",
                   }}
                 >
                   See all email (4)
@@ -179,18 +193,90 @@ const ProfileInfo = () => {
                     padding: "4px 8px",
                     fontStyle: "normal",
                     backgroundColor: "white",
-                    borderColor: "#f0f2f5",
-                    textTransform:'capitalize',
-                    fontWeight:'semibold'
+                    borderColor: "#F5F5F5",
+                    textTransform: "capitalize",
+                    fontWeight: "semibold",
                   }}
                 >
                   Add Email
                 </Button>
               </CardContent>
             </Card>
+
+            <Card sx={{ mb: 2, borderRadius: 3, backgroundColor: "white" }}>
+              <CardContent
+                sx={{
+                  backgroundColor: "#F5F5F5",
+                  borderTopRightRadius: 3,
+                  borderTopLeftRadius: 3,
+                }}
+              >
+                <Typography variant="h6">Phone Number</Typography>
+              </CardContent>
+              <CardContent>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    fontSize: "10px",
+                    fontWeight: "bold",
+                    borderRadius: "20px",
+                    padding: "2px 4px",
+                    mb: 1,
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Primary
+                </Button>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  +880 19246 9597
+                </Typography>
+                <Typography variant="body2">+880 17378 41420</Typography>
+              </CardContent>
+            </Card>
           </Grid>
 
-          
+          <Grid item xs={12} md={6.5}>
+            <Card
+              sx={{
+                mb: 4,
+                borderRadius: 3,
+                backgroundColor: "white",
+                height: "35%",
+              }}
+            >
+              <CardContent
+                sx={{
+                  backgroundColor: "#F5F5F5",
+                  borderTopRightRadius: 3,
+                  borderTopLeftRadius: 3,
+                }}
+              >
+                <Typography variant="h6">Address</Typography>
+              </CardContent>
+              <CardContent>
+                <Button
+                  variant="outlined"
+                  sx={{
+                    fontSize: "10px",
+                    fontWeight: "bold",
+                    borderRadius: "20px",
+                    padding: "2px 4px",
+                    mb: 1,
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Primary
+                </Button>
+                <Typography variant="body2" sx={{ mb: 1 }}>
+                  119 North Jatrabair, Dhaka 1294, Bangladesh
+                </Typography>
+                <Typography variant="body2">
+                  420 Fariada Palace, Pallibiddut Road, Patuakhali
+                </Typography>
+              </CardContent>
+            </Card>
+            
+          </Grid>
         </Grid>
       </Box>
     </Box>
