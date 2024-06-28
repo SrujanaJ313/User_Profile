@@ -306,7 +306,7 @@ const ProfileInfo = () => {
                   <MenuItem value="GMT+6">(GMT+6) Time in USA</MenuItem>
                 </TextField>
                 <Typography variant="body2" sx={{ mb: 2 }}>
-                  Nationality: Bangladeshi
+                  Nationality: Indian
                 </Typography>
                 <Typography variant="body2" sx={{ mb: 2 }}>
                   Merchant ID: XYZ20150403095
