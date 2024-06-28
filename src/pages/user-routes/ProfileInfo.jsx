@@ -238,7 +238,7 @@ const ProfileInfo = () => {
           <Grid item xs={12} md={6.5}>
             <Card
               sx={{
-                mb: 4,
+                mb: 2,
                 borderRadius: 3,
                 backgroundColor: "white",
                 height: "35%",
@@ -275,7 +275,47 @@ const ProfileInfo = () => {
                 </Typography>
               </CardContent>
             </Card>
-            
+            <Card sx={{ mb: 4, borderRadius: 3, backgroundColor: "white" }}>
+              <CardContent
+                sx={{
+                  backgroundColor: "#F5F5F5",
+                  borderTopRightRadius: 3,
+                  borderTopLeftRadius: 3,
+                }}
+              >
+                <Typography variant="h6">Account Options</Typography>
+              </CardContent>
+              <CardContent>
+                <TextField
+                  label="Language"
+                  select
+                  fullWidth
+                  value="English"
+                  sx={{ mb: 2 }}
+                >
+                  {/* <MenuItem value="Bangla">Bangla</MenuItem> */}
+                  <MenuItem value="English">English</MenuItem>
+                </TextField>
+                <TextField
+                  label="Time zone"
+                  select
+                  fullWidth
+                  value="GMT+6"
+                  sx={{ mb: 2 }}
+                >
+                  <MenuItem value="GMT+6">(GMT+6) Time in USA</MenuItem>
+                </TextField>
+                <Typography variant="body2" sx={{ mb: 2 }}>
+                  Nationality: Bangladeshi
+                </Typography>
+                <Typography variant="body2" sx={{ mb: 2 }}>
+                  Merchant ID: XYZ20150403095
+                </Typography>
+                <Button variant="contained" color="error">
+                  Close your account
+                </Button>
+              </CardContent>
+            </Card>
           </Grid>
         </Grid>
       </Box>
